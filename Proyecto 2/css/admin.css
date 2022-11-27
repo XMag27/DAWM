@@ -6,7 +6,16 @@ body {
     padding-left: 240px;
   }
 }
-
+#motion-effect tr {
+  transition-duration: 0.3s;
+}
+#motion-effect tr:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+#motion-effect tr:hover th {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
 #busqueda {
   margin-left: 2%;
 }
