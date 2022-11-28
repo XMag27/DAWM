@@ -29,9 +29,13 @@ fetch('https://api.covid19api.com/summary', {
 })
     .then(response => response.json())
     .then(data => {
+        var paisesCovidosos = new Map();
         document.getElementById("menu").addEventListener("change", function () {
             document.getElementById("grafico1").innerHTML = "";
+            document.getElementById("grafico2").innerHTML = "";
             var pais = document.getElementById("menu").value;
+            var global = data.Global;
+            var totalcovid = global.TotalConfirmed;
             var paises = data.Countries;
             paises.forEach(element => {
                 if (element.Country == pais) {
@@ -39,6 +43,7 @@ fetch('https://api.covid19api.com/summary', {
                     var muertos = element.TotalDeaths;
                     var total = element.TotalConfirmed;
                     var recuperados = total - muertos;
+                    document.getElementById("titulo").innerHTML += " " + pais;
                     document.getElementById("grafico1").innerHTML += `
                     <tbody>
                         <tr>
@@ -50,24 +55,29 @@ fetch('https://api.covid19api.com/summary', {
                     </tbody>
                     `;
                 }
+                
             });
-        })
-        document.getElementById("global").addEventListener("click", function () {
-            console.log(data.Global);
-            document.getElementById("grafico1").innerHTML = "";
-            var muertos = data.Global.TotalDeaths;
-            var total = data.Global.TotalConfirmed;
-            var recuperados = total - muertos;
+            paises.forEach(element => {
+                paisesCovidosos.set(element.Country, element.TotalConfirmed);
+            });
+            var texto = "";
+            var paisesCovidososOrdenados = new Map([...paisesCovidosos.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10));
+            var mayor = Math.max(...paisesCovidososOrdenados.values());
+            paisesCovidososOrdenados.forEach((value, key) => {
+                texto += `
+                <tr>
+                <td style="--size: calc( ${value} / ${mayor} )"> <span class="data">${key}</span> </td>
+                </tr>`
+                
+            });
+            
+    
             document.getElementById("grafico2").innerHTML += `
                     <tbody>
-                        <tr>
-                            <td style="--size: calc( ${data.Global.TotalDeaths} / ${data.Global.TotalConfirmed} )"> <span class="data">Muertos: ${muertos}</span> </td>
-                        </tr>
-                        <tr>
-                            <td style="--size: calc( (${data.Global.TotalConfirmed}-${data.Global.TotalDeaths}) / ${data.Global.TotalConfirmed} )"><span class="data">Recuperados: ${recuperados}</span> </td>  
-                        </tr>
+                        ${texto} 
                     </tbody>
                     `;
         })
+        
     })
     .catch(error => console.log(error));

@@ -5,14 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Material Design for Bootstrap</title>
-  <!-- Font Awesome -->
+  <title>Estadisticas SARS-CoV-2</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-  <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-  <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
-  <!-- Custom styles -->
   <link rel="stylesheet" href="css/admin.css" />
   <link rel="stylesheet" href="css/charts.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
@@ -20,51 +16,32 @@
 </head>
 
 <body>
-  <!--Main Navigation-->
-  <header>
-    <!-- Sidebar -->
-    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-      <div class="position-sticky">
-        <div class="list-group list-group-flush mx-3 mt-4">
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple" id='global' aria-current="true">
-            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Estadísticas globales</span>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-            <i class="fas fa-chart-area fa-fw me-3"></i><span>Estadísticas por país </span>
-          </a>
-        </div>
-      </div>
-    </nav>
-    <!-- Sidebar -->
 
-    <!-- Navbar -->
+  <header>
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <!-- Container wrapper -->
+
       <div class="container-fluid">
-        <!-- Toggle button -->
+
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
           aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
 
-        <!-- Brand -->
+    
         <a class="navbar-brand" href="#">
-          <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt="" loading="lazy" />
+          <img src="img/covid.png" height="25" alt="" loading="lazy" />
         </a>
-        <!-- Search form -->
-
+        
         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="menu">
           <option value="1">Selecciona un país</option>
         </select>
-        <button type="button" class="btn btn-light" id="busqueda" aria-label="Busca el pais" data-balloon-pos="down">Buscar</button>
-        <!--Create a button-->
+
         
 
-        <!-- Right links -->
+
         <ul class="navbar-nav ms-auto d-flex flex-row">
         
 
-          <!-- Avatar -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
               id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
@@ -74,53 +51,45 @@
           </li>
         </ul>
       </div>
-      <!-- Container wrapper -->
-    </nav>
-    <!-- Navbar -->
-  </header>
-  <!--Main Navigation-->
 
-  <!--Main layout-->
+    </nav>
+
+  </header>
+
   <main style="margin-top: 58px">
     <div class="container pt-4">
-      <!-- Section: Main chart -->
-      <section class="mb-4">
-        <div class="card">
-          <div class="card-header py-3">
-            <h5 class="mb-0 text-center"><strong>Casos de covid en el país</strong></h5>
-          </div>
-          <div class="card-body">
-            <table class="charts-css column show-data-on-hover" id="grafico1" style=" height: 200px;
-            max-width: 300px;
-            margin: 0 auto;">
-            </table>
-          </div>
-        </div>
-      </section>
-      <!-- Section: Main chart -->
-      <section class="mb-4">
-        <div class="card">
-          <div class="card-header py-3">
-            <h5 class="mb-0 text-center"><strong>Casos de covid hoy</strong></h5>
-          </div>
-          <div class="card-body">
-            <table class="charts-css column show-data-on-hover" id="grafico2" style=" height: 200px;
-            max-width: 300px;
-            margin: 0 auto;">
-            </table>
-          </div>
-        </div>
-      </section>
-      <!-- Section: Main chart -->
 
-      <!--Section: Sales Performance KPIs-->
-      <!--Section: Statistics with subtitles-->
+      <section class="mb-4">
+        <div class="card">
+          <div class="card-header py-3">
+            <h5 class="mb-0 text-center" id="titulo"><strong>Casos de SARS-CoV-2 en el país</strong></h5>
+          </div>
+          <div class="card-body">
+            <table class="charts-css column show-data-on-hover show-4-secondary-axes data-spacing-5" id="grafico1" style=" height: 200px;
+            max-width: 300px;
+            margin: 0 auto;">
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <div class="card">
+          <div class="card-header py-3">
+            <h5 class="mb-0 text-center"><strong>Paises con mayor cantidad de casos de SARS-CoV-2</strong></h5>
+          </div>
+          <div class="card-body">
+            <table class="charts-css column show-data-on-hover show-4-secondary-axes data-spacing-5" id="grafico2" style=" height: 200px;
+            max-width: 1000px;
+            margin: 0 auto;">
+            </table>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
-  <!--Main layout-->
-  <!-- MDB -->
+
   <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- Custom scripts -->
   <script type="text/javascript" src="js/admin.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
 </body>
