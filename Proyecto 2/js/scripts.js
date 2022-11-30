@@ -1,3 +1,9 @@
+var ecuador
+var muertosec
+var recuperadosec
+var confsec
+var nuevoconf;
+
 onload = async () => {
 fetch('https://api.covid19api.com/summary', {
     method: 'GET',
@@ -14,6 +20,12 @@ fetch('https://api.covid19api.com/summary', {
             var option = document.createElement("option");
             option.text = element.Country;
             select.add(option);
+            if (element.Country == "Ecuador") {
+                ecuador = element;
+                confsec = ecuador.TotalConfirmed;
+                muertosec = ecuador.TotalDeaths;    
+                nuevoconf = ecuador.NewConfirmed;
+            }
         });
 
     
@@ -29,6 +41,7 @@ fetch('https://api.covid19api.com/summary', {
 })
     .then(response => response.json())
     .then(data => {
+        
         var paisesCovidosos = new Map();
         document.getElementById("menu").addEventListener("change", function () {
             document.getElementById("grafico1").innerHTML = "";
@@ -38,8 +51,8 @@ fetch('https://api.covid19api.com/summary', {
             var totalcovid = global.TotalConfirmed;
             var paises = data.Countries;
             paises.forEach(element => {
+                
                 if (element.Country == pais) {
-                    console.log(element);
                     var muertos = element.TotalDeaths;
                     var total = element.TotalConfirmed;
                     var recuperados = total - muertos;
@@ -81,3 +94,7 @@ fetch('https://api.covid19api.com/summary', {
         
     })
     .catch(error => console.log(error));
+
+    document.getElementById("ec").addEventListener("click", function () {
+        alert("Ecuador tiene: " + confsec + " casos confirmados y " + muertosec + " muertos" + " y " + nuevoconf + " nuevos casos confirmados");
+    });

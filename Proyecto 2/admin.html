@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Estadisticas SARS-CoV-2</title>
+  <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <link rel="stylesheet" href="css/mdb.min.css" />
@@ -29,12 +30,14 @@
 
     
         <a class="navbar-brand" href="#">
-          <img src="img/covid.png" height="25" alt="" loading="lazy" />
+          <img src="img/covid.png" height="25" alt="" loading="lazy" id='logo'/>
         </a>
         
         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="menu">
           <option value="1">Selecciona un país</option>
         </select>
+        
+
 
         
 
@@ -43,10 +46,10 @@
         
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
+            <a aria-label="CovidReporte" class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
               id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
               <img src="https://i.pinimg.com/736x/38/98/a6/3898a6c005b66c89d847ae4be8465818.jpg" class="rounded-circle" height="22"
-                alt="" loading="lazy" />
+                alt="" loading="lazy" id="logo" />
             </a>
           </li>
         </ul>
@@ -84,6 +87,7 @@
             margin: 0 auto;">
             </table>
           </div>
+          <button aria-label="Da click para ver información sobre Ecuador" class="btn btn-outline-primary" data-balloon-pos="down" id="ec">Mi país</button>
         </div>
       </section>
     </div>

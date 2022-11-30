@@ -9,6 +9,7 @@ body {
 main {
   padding-left: 0px;
 }
+
 #motion-effect tr {
   transition-duration: 0.3s;
 }
