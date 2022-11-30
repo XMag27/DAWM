@@ -44,6 +44,7 @@ fetch('https://api.covid19api.com/summary', {
         
         var paisesCovidosos = new Map();
         document.getElementById("menu").addEventListener("change", function () {
+            document.getElementById("titulo").innerHTML = "";
             document.getElementById("grafico1").innerHTML = "";
             document.getElementById("grafico2").innerHTML = "";
             var pais = document.getElementById("menu").value;
@@ -56,7 +57,7 @@ fetch('https://api.covid19api.com/summary', {
                     var muertos = element.TotalDeaths;
                     var total = element.TotalConfirmed;
                     var recuperados = total - muertos;
-                    document.getElementById("titulo").innerHTML += " " + pais;
+                    document.getElementById("titulo").innerHTML += " Casos de SARS-CoV-2 en el país "  + pais;
                     document.getElementById("grafico1").innerHTML += `
                     <tbody>
                         <tr>
@@ -72,6 +73,13 @@ fetch('https://api.covid19api.com/summary', {
             });
             paises.forEach(element => {
                 paisesCovidosos.set(element.Country, element.TotalConfirmed);
+                document.getElementById("tabla").innerHTML += `
+                <tr>
+                    <td>${element.Country}</td>
+                    <td>${element.TotalConfirmed}</td>
+                    <td>${element.TotalDeaths}</td>
+                </tr>
+                `;
             });
             var texto = "";
             var paisesCovidososOrdenados = new Map([...paisesCovidosos.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10));
