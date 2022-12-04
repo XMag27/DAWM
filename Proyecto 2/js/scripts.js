@@ -44,6 +44,14 @@ fetch('https://api.covid19api.com/summary', {
         
         var paisesCovidosos = new Map();
         document.getElementById("menu").addEventListener("change", function () {
+            document.getElementById("tabla").innerHTML = `<thead>
+            <tr>
+              <th>País</th>
+              <th>Casos</th>
+              <th>Muertes</th>
+            </tr>
+            </thead>
+            <tbody id="tabele"> </tbody>`;
             document.getElementById("titulo").innerHTML = "";
             document.getElementById("grafico1").innerHTML = "";
             document.getElementById("grafico2").innerHTML = "";
