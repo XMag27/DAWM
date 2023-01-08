@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { ApiCovidService } from '../../Servicios/api-covid.service';
 
 
 @Component({
@@ -18,15 +19,17 @@ export class EstadisticasComponent {
   <h2>Muertos: `+ this.muertosec +`</h2>
   <h2>Confirmados Nuevos: `+ this.confsec +`</h2>
   </div>`;
+  MuertosTotales!: number;
+  CasosTotales!: number;
+
   selectChangeHandler (event: any) {
     this.pais = event.target.value;
     this.consultaEnfermos();
     this.consultaBandera();
   }
+
   consultaEnfermos() {
-    fetch('https://api.covid19api.com/summary')
-    .then(response => response.json())
-    .then(data => {
+    this.ApiCovidService.obtenerDatos().subscribe((data: any) => {
       var paises = data.Countries;
       for (var i = 0; i < paises.length; i++) {
         if ( paises[i].Country == this.pais) {
@@ -35,8 +38,7 @@ export class EstadisticasComponent {
           this.nuevoconf = paises[i].NewConfirmed;
         }
       }
-    })
-    .catch(error => console.log(error));
+    });
   }
   consultaBandera() {
     if(document.getElementById("show") != null) {
@@ -59,32 +61,24 @@ export class EstadisticasComponent {
     document.getElementById("show")?.appendChild(img);
   }
   }
-  constructor() {
-    fetch('https://api.covid19api.com/summary')
-  .then(response => response.json())
-  .then(data => {
-    var paises = data.Countries;
-    for (var i = 0; i < paises.length; i++) {
-      this.paises.push(paises[i].Country);
-      if ( paises[i].Country == "Ecuador") {
-        this.confsec = paises[i].TotalConfirmed;
-        this.muertosec = paises[i].TotalDeaths;
-        this.nuevoconf = paises[i].NewConfirmed;
+  constructor(private ApiCovidService: ApiCovidService) {
+    this.ApiCovidService.obtenerDatos().subscribe((data: any) => {
+      var paises = data.Countries;
+      for (var i = 0; i < paises.length; i++) {
+        this.paises.push(paises[i].Country);
+        if ( paises[i].Country == "Ecuador") {
+          this.confsec = paises[i].TotalConfirmed;
+          this.muertosec = paises[i].TotalDeaths;
+          this.nuevoconf = paises[i].NewConfirmed;
+        }
       }
-    }
-    var select = document.getElementById("menu");
+      var select = document.getElementById("menu");
     for (var i = 0; i < this.paises.length; i++) {
       var option = document.createElement("option");
       option.text = this.paises[i];
       select?.appendChild(option);
     }
-  })
-
-  .catch(error => console.log(error));
-  var select = document.getElementById("menu");
-  select?.addEventListener("change", function() {
-
-  })
-}
+    });
+  }
 }
 

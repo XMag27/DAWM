@@ -18,6 +18,7 @@ import {MatCardModule} from '@angular/material/card';
 import { CardComponent } from './Componentes/card/card.component';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { HasbullaComponent } from './hasbulla/hasbulla.component';
 
 
 
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     EstadisticasComponent,
     MainComponent,
     CardComponent,
-    InfogeneralComponent
+    InfogeneralComponent,
+    HasbullaComponent
   ],
   imports: [
     BrowserModule,

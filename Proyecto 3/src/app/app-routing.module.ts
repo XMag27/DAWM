@@ -4,6 +4,7 @@ import { ConsejosComponent } from './Componentes/consejos/consejos.component';
 import { EstadisticasComponent } from './Componentes/estadisticas/estadisticas.component';
 import { InfogeneralComponent } from './Componentes/infogeneral/infogeneral.component';
 import { MainComponent } from './Componentes/main/main.component';
+import { HasbullaComponent } from './hasbulla/hasbulla.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,8 @@ const routes: Routes = [
   { path: 'estadisticas', component: EstadisticasComponent },
   { path: 'infogeneral', component: InfogeneralComponent },
   { path: 'main', component: MainComponent },
+  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: 'hasbulla', component: HasbullaComponent }
 ];
 
 @NgModule({
