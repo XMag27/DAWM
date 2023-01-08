@@ -1,0 +1,17 @@
+.example-card {
+  max-width: 30%;
+  margin: 5% auto;
+}
+.titulo {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #000000;
+}
+.titulocard {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+

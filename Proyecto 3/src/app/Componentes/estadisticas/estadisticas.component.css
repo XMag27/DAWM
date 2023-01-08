@@ -1,0 +1,12 @@
+html,body {
+ height: 100%;
+}
+#show{
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+}
+footer {
+  height: 100px;
+  margin-bottom: -100px;
+}
