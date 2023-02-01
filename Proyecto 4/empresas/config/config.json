@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "xen",
+    "password": "12021202",
+    "database": "enterprise",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "xen",
+    "password": "12021202",
+    "database": "enterprise",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "xen",
+    "password": "12021202",
+    "database": "enterprise",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
