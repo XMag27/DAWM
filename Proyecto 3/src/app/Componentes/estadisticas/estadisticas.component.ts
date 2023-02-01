@@ -55,7 +55,7 @@ export class EstadisticasComponent {
   var contenido = document.createElement("div");
   contenido.innerHTML = `<h1>`+ this.pais + `</h1>
   <h2>Muertos: `+ this.muertosec +`</h2>
-  <h2>Confirmados Nuevos: `+ this.confsec +`</h2>`;
+  <h2>Casos Confirmados Totales: `+ this.confsec +`</h2>`;
   if(document.getElementById("show") != null) {
     document.getElementById("show")?.appendChild(contenido);
     document.getElementById("show")?.appendChild(img);

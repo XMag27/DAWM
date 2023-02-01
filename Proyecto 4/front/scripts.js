@@ -1,5 +1,6 @@
 
 let map = new Map();
+let orders = [];
 async function getCustomers() {
     fetch('http://localhost:3000/customers')
         .then(response => response.json())
@@ -50,9 +51,16 @@ function getShipped() {
                     cell2.innerHTML = data[key].productVendor;
                     cell3.innerHTML = data[key].shippedDate;
                     contador++;
+                    precio = data[key].priceEach;
+                    cantidad = data[key].quantityOrdered;
+                    totalPagado = precio * cantidad;
+                    orders.push(totalPagado);
                 }
             }
             alert('El cliente ' + customerName + ' ha recibido ' + contador + ' productos');
+            var jsonOrders = JSON.stringify(orders);
+            console.log(jsonOrders);
+            postOrders();
         }
         );
     fetch('https://apinosql-default-rtdb.firebaseio.com/collection.json')
@@ -75,7 +83,22 @@ function getShipped() {
         }
         );
 }
+//Do a post request to the server with the api and send the array of orders
+function postOrders() {
+    fetch('http://localhost:3000/orders', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orders)
+    })
+        .then(response => response.json())
+        .then(data => {
+            alert('El total de la compra es: ' + data.total);
+        }
+        );
 
+}
 
 document.getElementById('compradores').addEventListener('change', getShipped);
 

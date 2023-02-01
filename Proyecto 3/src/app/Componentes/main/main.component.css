@@ -1,5 +1,5 @@
 .example-card {
-  max-width: 30%;
+  max-width: 50%;
   margin: 5% auto;
 }
 .titulo {
@@ -13,5 +13,22 @@
   font-weight: bold;
   color: #ffffff;
 }
-
+.Informacion{
+  text-align: center;
+}
+.parrafo {
+  font-size: 1.5em;
+  color: #000000;
+  text-align: center;
+}
+mat-card{
+  justify-content: center
+}
+mat-card-header{
+  text-align: center;
+  background-color: #3a273f88;
+}
+mat-card-sm-image{
+  justify-content: center
+}
 

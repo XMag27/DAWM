@@ -1,36 +1,130 @@
-<h1 class="titulo"> Pagina Principal </h1>
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title class="titulocard">Ver Estadisticas Por País</mat-card-title>
-  </mat-card-header>
-  <img mat-card-image  src="https://pixsector.com/cache/89b8417a/av30af0a6ffb584d0e709.png" alt="Datos por país">
-  <mat-card-content>
-  </mat-card-content>
-  <mat-card-actions>
-        <a routerLink="/estadisticas"><button mat-raised-button color="primary" id="boton">Ir</button></a>
-  </mat-card-actions>
-</mat-card>
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title class="titulocard">Ver Estadisticas Globales</mat-card-title>
-  </mat-card-header>
-  <img mat-card-image src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_490843.png&f=1&nofb=1&ipt=cdec4174e058dc7ae1dc18a5a7192797e20f610ca02d60c5e91060601857278b&ipo=images" alt="Datos por país">
-  <mat-card-content>
-  </mat-card-content>
-  <mat-card-actions>
-    <a routerLink="/infogeneral"><button mat-raised-button color="primary" id="boton">Ir</button></a>
-  </mat-card-actions>
-</mat-card>
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title class="titulocard">Consejos para evitar contagios</mat-card-title>
-  </mat-card-header>
-  <img mat-card-image src="https://cdn-icons-png.flaticon.com/512/3771/3771294.png" alt="Consejos">
-  <mat-card-content>
-  </mat-card-content>
-  <mat-card-actions>
-    <a routerLink="/consejos"><button mat-raised-button color="primary" id="boton">Ir</button></a>
-  </mat-card-actions>
-</mat-card>
+<h1 class="titulo"> Sars-CoV2 Dashboard </h1>
+
+<div class = "Informacion">
+  <span class="parrafo">Bienvenido a nuestro dashboard, aquí podrás encontrar información sobre el virus Sars-CoV2, sus estadísticas, consejos para evitar contagios y mucho más.</span>
+  <br>
+  <br>
+  <span class="parrafo">Para acceder a la información, solo debes seleccionar una de las opciones que se encuentran a continuación.</span>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title class="titulocard">Ver Estadisticas Por País</mat-card-title>
+
+        </mat-card-header>
+        <img mat-card-sm-image  src="https://pixsector.com/cache/89b8417a/av30af0a6ffb584d0e709.png" alt="Datos por país">
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+              <a routerLink="/estadisticas"><button mat-raised-button color="primary" id="boton">Ir</button></a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-sm">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title class="titulocard">Consejos para evitar contagios</mat-card-title>
+        </mat-card-header>
+        <img mat-card-sm-image src="https://cdn-icons-png.flaticon.com/512/3771/3771294.png" alt="Consejos">
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+          <a routerLink="/consejos"><button mat-raised-button color="primary" id="boton">Ir</button></a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+      <div class="col-sm">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="titulocard">Ver Estadisticas Globales</mat-card-title>
+          </mat-card-header>
+          <img mat-card-sm-image src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_490843.png&f=1&nofb=1&ipt=cdec4174e058dc7ae1dc18a5a7192797e20f610ca02d60c5e91060601857278b&ipo=images" alt="Datos por país">
+          <mat-card-content>
+          </mat-card-content>
+          <mat-card-actions>
+            <a routerLink="/infogeneral"><button mat-raised-button color="primary" id="boton">Ir</button></a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+  </div>
+</div>
+<div class="enlaces-relevantes">
+  <h2 class="titulo">Enlaces Relevantes</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="titulocard">Ministerio de Salud</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <a href="https://www.minsalud.gov.co/"><button mat-raised-button color="primary" id="boton">Ir</button></a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="col-sm">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="titulocard">Organización Mundial de la Salud</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <a href="https://www.who.int/es"><button mat-raised-button color="primary" id="boton">Ir</button></a>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="col-sm">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="titulocard">Universidad de los Andes</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions>
+            <a href="https://www.uniandes.edu.co/"><button mat-raised-button color="primary" id="boton">Ir a la página</button></a>
+          </mat-card-actions>
+        </mat-card>
+</div>
+</div>
+</div>
+<div class = "Sintomas de covid">
+  <h2 class="titulo">Síntomas de Covid-19</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="titulocard">Fiebre</mat-card-title>
+          </mat-card-header>
+          <img mat-card-sm-image src="https://cdn-icons-png.flaticon.com/512/946/946342.png" alt="Consejos">
+          <mat-card-content>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+      <div class="col-sm">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="titulocard">Tos</mat-card-title>
+          </mat-card-header>
+          <img mat-card-sm-image src="https://uxwing.com/wp-content/themes/uxwing/download/health-sickness-organs/cough-icon.png" alt="Consejos">
+          <mat-card-content>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+      <div class="col-sm">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="titulocard">Dificultad para respirar</mat-card-title>
+          </mat-card-header>
+          <img mat-card-sm-image src="https://cdn-icons-png.flaticon.com/512/2877/2877827.png" alt="Consejos">
+          <mat-card-content>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
